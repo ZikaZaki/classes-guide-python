@@ -1,6 +1,4 @@
 from dataclasses import dataclass
-from email.message import EmailMessage
-from smtplib import SMTP_SSL
 from email_tools.service import EmailService
 
 SMTP_SERVER = "smtp.gmail.com"
