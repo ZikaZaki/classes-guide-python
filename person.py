@@ -7,6 +7,19 @@ PORT = 465
 EMAIL = "hi@zikazaki.com"
 PASSWORD = "password"
 
+def bmi(weight: float, height: float) -> float:
+    return weight / (height**2)
+
+def bmi_category(bmi_vlaue: float) -> str:
+    if bmi_vlaue < 18.5:
+        return "Underweight"
+    elif bmi_vlaue < 25:
+        return "Normal"
+    elif bmi_vlaue < 30:
+        return "Overweight"
+    else:
+        return "Obese"
+        
 @dataclass
 class Stats:
     age: int
@@ -16,23 +29,6 @@ class Stats:
     blood_type: str
     eye_color: str
     hair_color: str
-
-    # use @cahed_property decorator, to compute the stats only once
-    # but this is gonna be a problem if the stats values change
-    @cached_property
-    def bmi(self) -> float:
-        return self.weight / (self.height**2)
-
-    @property
-    def bmi_category(self) -> str:
-        if self.bmi < 18.5:
-            return "Underweight"
-        elif self.bmi < 25:
-            return "Normal"
-        elif self.bmi < 30:
-            return "Overweight"
-        else:
-            return "Obese"
     
 @dataclass
 class Address:
