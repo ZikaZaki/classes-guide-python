@@ -55,7 +55,8 @@ class Person:
         return first_name, last_name
         
     # in this method we should avoid creating or instantiating any other object like EmailService.
-    # instead, we should use Dependency Injection.
+    # instead, we should use Dependency Injection. We should also decouple the person class
+    # from being directly dependent on the EmailService class, by abstracting the EmailService class.
     def update_email(self, email: str, email_service: EmailService) -> None:
         self.email = email
         # send email to the new address
