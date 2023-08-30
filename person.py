@@ -16,7 +16,8 @@ class Stats:
     eye_color: str
     hair_color: str
 
-    @property
+    # use @cahed_property decorator, cause we are not changing the stats anymore
+    @cached_property
     def bmi(self) -> float:
         return self.weight / (self.height**2)
 
