@@ -104,7 +104,7 @@ def main() -> None:
     # here we are using Dependency Injection, by creating an object of EmailService,
     # instead of creating it inside the person class
     email_service = EmailService(SMTP_SERVER, PORT, EMAIL, PASSWORD)
-    person.update_email("zikazaki@gmail.com")
+    person.update_email("zikazaki@gmail.com", email_service)
     
 if __name__ == "__main__":
     main()
