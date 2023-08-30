@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from email.message import EmailMessage
 from smtplib import SMTP_SSL
+from email_tools.service import EmailService
 
 SMTP_SERVER = "smtp.gmail.com"
 PORT = 465
@@ -56,17 +57,13 @@ class Person:
     def update_email(self, email: str) -> None:
         self.email = email
         # send email to the new address
-        msg = EmailMessage()
-        msg.set_content(
+        email_service = EmailService(SMTP_SERVER, PORT, EMAIL, PASSWORD)
+        email_service.send_message(
+            self.email,
+            "Your email has been updated.",
             "Your email has been updated. If this was not you, you have a problem."
         )
-        msg["Subject"] = "Your email has been updated!"
-        msg["To"] = self.email
         
-        with SMTP_SSL(SMTP_SERVER, PORT) as server:
-            # server.login(EMAIL, PASSWORD)
-            # server.send_message(msg, EMAIL)
-            pass
         print("Email sent successfully!")
 
 def main() -> None:
