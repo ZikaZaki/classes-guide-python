@@ -39,7 +39,7 @@ class Address:
     country: str
     postal_code: str
     
-    def get_full_address(self) -> str:
+    def __str__(self) -> str:
         return f"{self.address_line_1}, {self.address_line_2}, {self.city}, {self.country}, {self.postal_code}"
 
 @dataclass
