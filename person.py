@@ -48,7 +48,8 @@ class Person:
     email: str
     phone_number: str
     stats: Stats
-    
+
+    @property
     def split_name(self) -> tuple[str, str]:
         first_name, last_name = self.name.split(" ")
         return first_name, last_name
