@@ -1,11 +1,17 @@
 from dataclasses import dataclass
 from functools import cached_property
+from typing import Protocol
 from email_tools.service import EmailService
 
 SMTP_SERVER = "smtp.gmail.com"
 PORT = 465
 EMAIL = "hi@zikazaki.com"
 PASSWORD = "password"
+
+class EmailSender(Protocol):
+    def send_message(self, to_email: str, subject: str, body: str) -> None:
+        ...
+        pass
 
 def bmi(weight: float, height: float) -> float:
     return weight / (height**2)
@@ -57,7 +63,7 @@ class Person:
     # in this method we should avoid creating or instantiating any other object like EmailService.
     # instead, we should use Dependency Injection. We should also decouple the person class
     # from being directly dependent on the EmailService class, by abstracting the EmailService class.
-    def update_email(self, email: str, email_service: EmailService) -> None:
+    def update_email(self, email: str, email_service: EmailSender) -> None:
         self.email = email
         # send email to the new address
         email_service.send_message(
