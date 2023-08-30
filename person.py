@@ -98,4 +98,5 @@ def main() -> None:
     print(f"Your BMI is {bmi_value:.2f}")
     print(f"Your BMI category is {bmi_category(bmi_value)}")
     
-main()
+if __name__ == "__main__":
+    main()
