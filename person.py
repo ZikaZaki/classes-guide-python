@@ -19,6 +19,7 @@ class Stats:
     @property
     def bmi(self) -> float:
         return self.weight / (self.height**2)
+
     @property
     def bmi_category(self) -> str:
         if self.bmi < 18.5:
