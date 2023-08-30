@@ -21,11 +21,11 @@ class Stats:
         return self.weight / (self.height**2)
     @property
     def bmi_category(self) -> str:
-        if self.get_bmi() < 18.5:
+        if self.bmi < 18.5:
             return "Underweight"
-        elif self.get_bmi() < 25:
+        elif self.bmi < 25:
             return "Normal"
-        elif self.get_bmi() < 30:
+        elif self.bmi < 30:
             return "Overweight"
         else:
             return "Obese"
