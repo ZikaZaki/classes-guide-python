@@ -1,5 +1,4 @@
-# classes Guide for Python
-# Functions Guide for Python
+# Classes Guide for Python
 
 This repository aims to provide a comprehensive guide on writing better classes in Python. Whether you're a beginner or an experienced Python developer, this guide is designed to help you improve your class design, readability, and overall coding practices.
 
