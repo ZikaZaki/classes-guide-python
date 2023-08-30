@@ -17,7 +17,7 @@ class Stats:
     hair_color: str
 
     @property
-    def get_bmi(self) -> float:
+    def bmi(self) -> float:
         return self.weight / (self.height**2)
     
     def get_bmi_category(self) -> str:
