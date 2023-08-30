@@ -53,11 +53,12 @@ class Person:
     def split_name(self) -> tuple[str, str]:
         first_name, last_name = self.name.split(" ")
         return first_name, last_name
-    
-    def update_email(self, email: str) -> None:
+        
+    # in this method we should avoid creating or instantiating any other object like EmailService.
+    # instead, we should use Dependency Injection.
+    def update_email(self, email: str, email_service: EmailService) -> None:
         self.email = email
         # send email to the new address
-        email_service = EmailService(SMTP_SERVER, PORT, EMAIL, PASSWORD)
         email_service.send_message(
             self.email,
             "Your email has been updated.",
@@ -98,6 +99,12 @@ def main() -> None:
     bmi_value = bmi(person.stats.weight, person.stats.height)
     print(f"Your BMI is {bmi_value:.2f}")
     print(f"Your BMI category is {bmi_category(bmi_value)}")
+    
+    # update the email address
+    # here we are using Dependency Injection, by creating an object of EmailService,
+    # instead of creating it inside the person class
+    email_service = EmailService(SMTP_SERVER, PORT, EMAIL, PASSWORD)
+    person.update_email("zikazaki@gmail.com")
     
 if __name__ == "__main__":
     main()
