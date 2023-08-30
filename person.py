@@ -92,8 +92,7 @@ def main() -> None:
     )
     
     # compute the BMI
-    bmi = person.stats.bmi
-    print(f"Your BMI is {bmi:.2f}")
+    print(f"Your BMI is {person.stats.bmi:.2f}")
     print(f"Your BMI category is {person.stats.bmi_category}")
     
 main()
