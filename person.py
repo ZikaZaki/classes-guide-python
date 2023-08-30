@@ -61,7 +61,6 @@ class Person:
             "Your email has been updated.",
             "Your email has been updated. If this was not you, you have a problem."
         )
-        print("Email sent successfully!")
 
 def main() -> None:
     # creatre a stats 
