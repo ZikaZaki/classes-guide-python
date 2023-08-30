@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from functools import cached_property
 from email_tools.service import EmailService
 
 SMTP_SERVER = "smtp.gmail.com"
