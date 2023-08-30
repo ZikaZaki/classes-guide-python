@@ -74,6 +74,7 @@ def main() -> None:
         eye_color = "black",
         hair_color = "black"
     )
+    
     # create an address
     address = Address(
         address_line_1 = "123 Main St",
@@ -82,6 +83,7 @@ def main() -> None:
         country = "USA",
         postal_code = "12345"
     )
+    
     # create a person
     person = Person(
         name = "ZikaZaki",
@@ -92,7 +94,8 @@ def main() -> None:
     )
     
     # compute the BMI
-    print(f"Your BMI is {person.stats.bmi:.2f}")
-    print(f"Your BMI category is {person.stats.bmi_category}")
+    bmi_value = bmi(person.stats.weight, person.stats.height)
+    print(f"Your BMI is {bmi_value:.2f}")
+    print(f"Your BMI category is {bmi_category(bmi_value)}")
     
 main()
