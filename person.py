@@ -11,6 +11,7 @@ PASSWORD = "password"
 # One issue with callable is that we cannot name the argument
 # EmailSender = Callable[[str, str, str], None]
 
+# We can turn this class into a callable object, using the __call__ method
 class EmailSender(Protocol):
     def send_message(self, to_email: str, subject: str, body: str) -> None:
         ...
