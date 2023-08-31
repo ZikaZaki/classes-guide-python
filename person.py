@@ -11,10 +11,9 @@ PASSWORD = "password"
 # One issue with callable is that we cannot name the argument
 # EmailSender = Callable[[str, str, str], None]
 
-# class EmailSender(Protocol):
-#     def send_message(self, to_email: str, subject: str, body: str) -> None:
-#         ...
-#         pass
+class EmailSender(Protocol):
+    def send_message(self, to_email: str, subject: str, body: str) -> None:
+        ...
 
 def bmi(weight: float, height: float) -> float:
     return weight / (height**2)
