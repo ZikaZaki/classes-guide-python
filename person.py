@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from functools import cached_property
+from functools import cached_property, lru_cache, partial
 from typing import Protocol, Callable
 from email_tools.service import EmailService
 
@@ -13,12 +13,14 @@ PASSWORD = "password"
 
 # We can turn this class into a callable object, using the __call__ method
 class EmailSender(Protocol):
-    def send_message(self, to_email: str, subject: str, body: str) -> None:
+    def __call__(self, to_email: str, subject: str, body: str) -> None:
         ...
 
+@lru_cache
 def bmi(weight: float, height: float) -> float:
     return weight / (height**2)
 
+@lru_cache
 def bmi_category(bmi_vlaue: float) -> str:
     if bmi_vlaue < 18.5:
         return "Underweight"
