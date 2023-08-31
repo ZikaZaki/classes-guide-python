@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from functools import cached_property, lru_cache, partial
 from typing import Protocol, Callable
-from email_tools.service import EmailService
+from email_tools.service_v2 import send_email
 
 SMTP_SERVER = "smtp.gmail.com"
 PORT = 465
@@ -73,9 +73,9 @@ class Person:
         # send email to the new address
         # email_service.send_message(
         send_message_fn(
-            self.email,
-            "Your email has been updated.",
-            "Your email has been updated. If this was not you, you have a problem."
+            to_email = self.email,
+            subject = "Your email has been updated.",
+            body = "Your email has been updated. If this was not you, you have a problem."
         )
 
 def main() -> None:
@@ -116,8 +116,8 @@ def main() -> None:
     # update the email address
     # here we are using Dependency Injection, by creating an object of EmailService,
     # instead of creating it inside the person class
-    email_service = EmailService(SMTP_SERVER, PORT, EMAIL, PASSWORD)
-    person.update_email("zikazaki@gmail.com", email_service)
+    send_message = partial(send_email, smtp_server = SMTP_SERVER, port = PORT, email = EMAIL, password = PASSWORD)
+    person.update_email("zikazaki@gmail.com", send_message)
     
 if __name__ == "__main__":
     main()
