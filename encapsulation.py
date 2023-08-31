@@ -30,4 +30,4 @@ def main() -> None:
 
   # Accessing private attribute or method directly will raise an AttributeError
   # print(person1.__ssn) # This will raise an AttributeError
-  # print(person1._Person__ssn) # This will work so it's not truly private
+  # print(person1._Person__ssn) # This will work so it's not truly private, we still can access it via the "mangled attribute"
