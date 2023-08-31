@@ -8,7 +8,8 @@ PORT = 465
 EMAIL = "hi@zikazaki.com"
 PASSWORD = "password"
 
-EmailSender = Callable[[str, str, str], None]
+# One issue with callable is that we cannot name the argument
+# EmailSender = Callable[[str, str, str], None]
 
 # class EmailSender(Protocol):
 #     def send_message(self, to_email: str, subject: str, body: str) -> None:
