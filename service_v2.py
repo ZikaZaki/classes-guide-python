@@ -18,6 +18,7 @@ def send_email(
   body: str,
 ) -> None:
   msg = create_email_message(to_email, subject, body)
+  
   with SMTP_SSL(smtp_server, port) as server:
     # server.login(email, password)
     # server.send_message(msg, email)
