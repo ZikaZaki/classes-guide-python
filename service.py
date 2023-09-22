@@ -18,5 +18,4 @@ class EmailService:
     # server.login(EMAIL, PASSWORD)
     # server.send_message(msg, EMAIL)
     pass
-    
   print("Email sent successfully!")
