@@ -23,4 +23,3 @@ def send_email(
     # server.login(email, password)
     # server.send_message(msg, email)
     print("Email sent successfully!")
-
